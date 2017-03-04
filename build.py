@@ -35,6 +35,7 @@ license = "Apache License, Version 2.0"
 
 default_task = ["install_dependencies", "analyze", "sphinx_generate_documentation", "publish"]
 
+requires_python = ">=3.3"
 
 @init
 def set_properties(project: Project):
@@ -43,6 +44,8 @@ def set_properties(project: Project):
 
     project.build_depends_on("sqlalchemy")
     project.build_depends_on("django")
+    project.build_depends_on("karellen-sqlite", "~=0.0.0")
+    project.build_depends_on("unittest2")
 
     # Cram Configuration
     project.set_property("cram_fail_if_no_tests", False)
@@ -72,6 +75,7 @@ def set_properties(project: Project):
     project.set_property("distutils_classifiers", project.get_property("distutils_classifiers") + [
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Internet',
